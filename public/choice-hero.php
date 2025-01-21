@@ -39,7 +39,8 @@ if(!$heroes) {
                          <!-- mettre img ici  -->
                         </div>
                         <h2 class="hero-name"><?= htmlspecialchars($hero->getPrenom()) ?></h2>
-                        <button type="submit">Select</button>
+                        <p>Nombre de pv: <?= htmlspecialchars($hero->getPoint_vie()) ?></p>
+                        <button type="submit">Sélectionnez</button>
                     </form>
                 </div>
             <?php endforeach; ?>

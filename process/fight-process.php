@@ -32,6 +32,14 @@ if ($hero->getPoint_vie() > 0 && $monster->getPoint_vie() > 0):
     endif;
 endif;
 
+// ici j'essaye de faire un if pour quand le hero ou le monstre gagne  sa affiche un message 
+// mais je crois faut le faire en js
+
+if($hero == 0){
+    echo "Vous avez perdu le monstre gagne";
+}else{
+    echo "vous avez gagnez le monstre a perdu ";
+}
 
 
 header("Location: ../public/fight.php");

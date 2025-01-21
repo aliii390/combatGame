@@ -1,15 +1,10 @@
 /* Style global */
-
 @import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
-
-
-
-
 
 body {
     background-image: url(../img/test.gif); /* Fond animé */
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: cover; /* Le fond s'adapte à la taille de l'écran */
     background-position: center;
     color: white;
     font-family: 'Arial', sans-serif;
@@ -20,6 +15,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    text-align: center;
 }
 
 .hero-container {
@@ -46,10 +42,11 @@ h1 {
 /* Cards des héros */
 .hero-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive */
     gap: 20px;
-    width: 100%;
+    width: 90%; /* S'adapte à la largeur de l'écran */
     max-width: 1200px;
+    margin: auto;
 }
 
 /* Design des cartes de héros */
@@ -90,8 +87,8 @@ h1 {
 
 /* Image du héros */
 .hero-image img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* L'image s'adapte à la largeur de la carte */
+    height: auto; /* Respecte les proportions de l'image */
     border-bottom: 4px solid #ffbf00;
     transition: transform 0.3s ease;
 }
@@ -111,10 +108,10 @@ h1 {
 .hero-card button {
     background-color: #ff0000;
     color: white;
-    padding: 5px 30px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     position: relative;
     z-index: 2;
     cursor: pointer;
@@ -128,6 +125,7 @@ h1 {
     transform: scale(1.05);
 }
 
+/* Bouton de déconnexion */
 .logout-button {
     margin-top: 30px;
     color: #ff5733;
@@ -138,4 +136,39 @@ h1 {
 
 .logout-button:hover {
     color: #ff0000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .hero-card button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .hero-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-card {
+        margin-bottom: 20px;
+    }
+
+    .hero-card button {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
 }
