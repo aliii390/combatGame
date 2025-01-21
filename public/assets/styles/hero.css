@@ -1,0 +1,141 @@
+/* Style global */
+
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
+
+
+
+
+body {
+    background-image: url(../img/test.gif); /* Fond animé */
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-position: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.hero-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: "Nosifer", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ff0000;
+    text-shadow: 3px 3px black;
+    margin: 0;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Cards des héros */
+.hero-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Design des cartes de héros */
+.hero-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+}
+
+.hero-card:hover .hero-image img {
+    transform: scale(1.1);
+}
+
+.hero-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.hero-card:hover:before {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Image du héros */
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #ffbf00;
+    transition: transform 0.3s ease;
+}
+
+/* Nom du héros */
+.hero-name {
+    position: relative;
+    z-index: 2;
+    color: #ffbf00;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
+    padding: 10px;
+}
+
+/* Bouton de sélection */
+.hero-card button {
+    background-color: #ff0000;
+    color: white;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card button:hover {
+    background-color: #ffbf00;
+    transform: scale(1.05);
+}
+
+.logout-button {
+    margin-top: 30px;
+    color: #ff5733;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.logout-button:hover {
+    color: #ff0000;
+}
