@@ -1,6 +1,4 @@
-
-
-<?php 
+<?php
 require_once '../utils/autoloader.php';
 
 session_start();
@@ -15,30 +13,21 @@ $hero = $_SESSION['hero'];
  */
 $monster = $_SESSION['monster'];
 
-if ($hero->getPoint_vie() > 0 && $monster->getPoint_vie() > 0):
-    echo $hero->getPrenom() . $monster->getPrenom() . "\n";
-
+// Verif les points de vie avant toute action
+if ($hero->getPoint_vie() > 0 && $monster->getPoint_vie() > 0) {
     $hero->hit($monster);
 
-    echo $hero->getPrenom();
-
     // Si le monstre ne survit pas à l'attaque du héros
-    if ($monster->getPoint_vie() > 0):
-        echo $monster->getPrenom();
-
+    if ($monster->getPoint_vie() > 0) {
         $monster->hit($hero);
+    }
+}
 
-        echo $monster->getPrenom();
-    endif;
-endif;
-
-// ici j'essaye de faire un if pour quand le hero ou le monstre gagne  sa affiche un message 
-// mais je crois faut le faire en js
-
-if($hero == 0){
-    echo "Vous avez perdu le monstre gagne";
-}else{
-    echo "vous avez gagnez le monstre a perdu ";
+// Déterminez le gagnant
+if ($hero->getPoint_vie() <= 0) {
+    $_SESSION['message'] = "Vous avez perdu, le monstre a gagné !";
+} elseif ($monster->getPoint_vie() <= 0) {
+    $_SESSION['message'] = "Bravo ! Vous avez gagné, le monstre a été vaincu !";
 }
 
 

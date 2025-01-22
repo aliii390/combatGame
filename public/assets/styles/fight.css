@@ -2,6 +2,11 @@
 
 
 
+
+
+
+
+
 body {
     background-image: url(../img/decors.gif);
     background-repeat: no-repeat;
@@ -23,19 +28,49 @@ form {
 }
 
 .fight-button {
-    padding: 10px 20px;
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff0000, #800000);
+    color: #fff;
+    border: 2px solid #ff4500; 
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px #ff4500, 0 0 30px #ff4500; 
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+    font-family: 'Nosifer', sans-serif; 
 }
 
+
 .fight-button:hover {
-    background-color: #ffbf00;
+    background: linear-gradient(45deg, #ffbf00, #ff8000); 
+    transform: scale(1.1); /* Agrandit légèrement */
+    box-shadow: 0 0 25px #ffbf00, 0 0 50px #ffbf00;
 }
+
+
+.fight-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500;
+    background: linear-gradient(45deg, #800000, #ff0000);
+}
+
+/* Animation pulsante */
+.fight-button {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 15px #ff4500, 0 0 30px #ff4500;
+    }
+    50% {
+        box-shadow: 0 0 25px #ff4500, 0 0 50px #ff4500;
+    }
+}
+
 
 .hero-container {
     display: flex;
@@ -74,5 +109,37 @@ form {
     }
     50% {
         transform: translateY(-10px);
+    }
+}
+
+
+
+.message {
+    position: fixed; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background-color: rgba(142, 209, 133, 0.9); 
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    z-index: 9999; 
+    animation: fade-in 0.8s ease-out; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    font-family: "Nosifer", serif;
+}
+
+/* Anim pour le message de fin */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 }
